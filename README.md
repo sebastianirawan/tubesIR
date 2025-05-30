@@ -2,9 +2,7 @@ Requirements
 
 Make sure you have the following Python packages installed:
 
-nltk
-
-scikit-learn
+nltk, scikit-learn
 
 You can install them via pip: pip install nltk scikit-learn
 
