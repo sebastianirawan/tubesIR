@@ -1,4 +1,4 @@
-Title: What is Requirement Gathering
+What is Requirement Gathering
 
 Requirement engineering, huh? It's basically the detective work at the very start of any project, especially in software. You know how people often think they know what they want, but it's often vague or changes? Requirement engineering is all about digging deep, asking the right questions, and figuring out the actual needs of the users and the business.
 

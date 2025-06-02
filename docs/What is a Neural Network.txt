@@ -1,4 +1,4 @@
-Title: What is a Neural Network?
+What is a Neural Network?
 
 In its most general form, a neural network is a machine that is designed to model the way
 in which the brain performs a particular task or function of interest; the network is usually implemented by using electronic components or is simulated in software on a digital computer. In this book, we focus on an important class of neural networks that

@@ -1,4 +1,4 @@
-Title: Network Topologies
+Network Topologies
 
 Network topology refers to the physical or logical arrangement of nodes (devices) and connections (links) in a computer network. It defines how devices are interconnected and how data flows between them. The choice of topology impacts network performance, reliability, scalability, and cost.
 

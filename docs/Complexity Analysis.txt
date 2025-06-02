@@ -1,3 +1,3 @@
-Title: Complexity Analysis
+Complexity Analysis
 
 Complexity analysis is a fundamental aspect of computer science that involves estimating the resources (primarily time and space) an algorithm requires to solve a problem. It provides a theoretical measure of how an algorithm's performance scales with the size of its input, typically expressed using Big O notation. This notation describes the upper bound of the growth rate, allowing us to compare the efficiency of different algorithms independently of specific hardware or implementation details. By understanding an algorithm's complexity, developers can make informed decisions about which algorithms are most suitable for different tasks, especially when dealing with large datasets or real-time constraints.

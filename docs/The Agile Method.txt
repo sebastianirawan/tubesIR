@@ -1,4 +1,4 @@
-Title: The Agile Method
+The Agile Method
 
 1. Introduction: A Paradigm Shift in Software Engineering
 The traditional "Waterfall" model, with its linear and sequential progression, often struggled to adapt to the inherent volatility and evolving requirements of modern software projects. This led to the emergence of the Agile methodology, a fundamentally different approach to software development that prioritizes flexibility, collaboration, customer involvement, and rapid delivery of working software. Rooted in the Agile Manifesto – a set of four core values and twelve guiding principles established in 2001 – Agile is not a single methodology but an umbrella term encompassing various frameworks (e.g., Scrum, Kanban, Lean, Extreme Programming). Its core philosophy revolves around iterative and incremental development, breaking down large projects into smaller, manageable cycles, fostering continuous feedback, and embracing change at any stage.

@@ -1,4 +1,4 @@
-Title: Djikstra's Algorithm
+Djikstra's Algorithm
 
 Dijkstra's Algorithm, named after its discoverer Edsger W. Dijkstra, is a powerful and widely used algorithm for finding the shortest paths from a single source vertex to all other vertices in a weighted graph. It's particularly useful in applications like network routing, GPS navigation, and mapping shortest routes.
 

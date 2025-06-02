@@ -1,4 +1,4 @@
-Title: Introduction to Machine Learning
+Introduction to Machine Learning
 
 Machine learning is about extracting knowledge from data. It is a research field at the
 intersection of statistics, artificial intelligence, and computer science and is also

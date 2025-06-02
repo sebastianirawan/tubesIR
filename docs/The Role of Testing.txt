@@ -1,4 +1,4 @@
-Title: The Role of Testing
+The Role of Testing
 
 What is it?
 

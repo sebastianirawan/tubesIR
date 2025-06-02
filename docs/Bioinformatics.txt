@@ -1,4 +1,4 @@
-Title: The World of Bioinformatics
+The World of Bioinformatics
 
 Alright, let's chat about something super cool that's changing the game in science: Bioinformatics!
 
