@@ -1,4 +1,4 @@
-Title: Ethics in AI
+Ethics in AI
 
 Artificial Intelligence (AI) is rapidly evolving, bringing incredible advancements and efficiencies across countless sectors. However, with this immense power comes significant ethical responsibilities. Ethics in AI is a critical field dedicated to ensuring that AI systems are developed, deployed, and used in a way that benefits humanity, respects individual rights, and avoids unintended harm. It's about designing AI with human values at its core, anticipating potential societal impacts, and establishing mechanisms for accountability.
 

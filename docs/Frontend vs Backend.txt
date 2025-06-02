@@ -1,4 +1,4 @@
-Title: Frontend VS Backend
+Frontend VS Backend
 
 Ah, the eternal debate in web development: frontend vs. backend! It's like asking if the engine or the dashboard is more important in a car. Both are absolutely crucial, but they do completely different jobs and appeal to different types of developers. Let's break it down.
 

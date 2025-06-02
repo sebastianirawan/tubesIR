@@ -1,3 +1,3 @@
-Title: Why Cloud Deployment Rocks!!
+Why Cloud Deployment Rocks!!
 
 Man, deploying websites these days? It's all about the cloud, seriously. Gone are the days of fiddling with servers and stressing over traffic spikes. You just spin up an instance on AWS, Azure, or Google Cloud, and BAM! Your site is live. The best part? You only pay for what you use, which is awesome for startups or small projects. Plus, global reach and built-in redundancy mean your site is practically always online, no matter where your users are. It's truly a no-brainer for modern web dev. #CloudComputing #WebDev #Deployment

@@ -1,4 +1,4 @@
-Title: Sorting Algorithms
+Sorting Algorithms
 
 Bubble Sort: This algorithm repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. It's simple to understand but inefficient for large datasets.
 

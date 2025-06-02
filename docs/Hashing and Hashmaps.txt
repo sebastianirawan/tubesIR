@@ -1,4 +1,4 @@
-Title: Hashing and Hash Tables
+Hashing and Hash Tables
 
 1. Introduction to Associative Arrays and the Role of Hashing
 In computer science, an associative array, also known as a dictionary or map, is an abstract data type that stores a collection of key-value pairs, where each unique key is associated with a specific value. The primary operations supported by an associative array are insertion of a key-value pair, deletion of a key-value pair, and retrieval of a value associated with a given key. The efficiency of these operations is paramount in numerous computational applications, ranging from database indexing and symbol tables in compilers to caches and graph algorithms.

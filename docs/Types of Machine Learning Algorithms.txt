@@ -1,4 +1,4 @@
-Title: Types of Machine Learning Algorithms
+Types of Machine Learning Algorithms
 
 Machine learning is about designing algorithms that allow a computer to learn. Learning is
 not necessarily involves consciousness but learning is a matter of finding statistical

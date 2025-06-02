@@ -1,4 +1,4 @@
-Title: Databases in Web Development
+Databases in Web Development
 
 1. Introduction to Persistent Data Storage in Web Applications
 Modern web applications are inherently dynamic, requiring the ability to store, retrieve, update, and delete information persistently. This persistence is crucial for managing user accounts, content, product catalogs, transactional data, and virtually any mutable state that defines an application's functionality. The underlying technology that enables this persistent data management is the database. Databases serve as organized repositories of structured or semi-structured data, providing mechanisms for efficient data access, integrity, and concurrency control. This paper formally examines the critical role of databases in web development, exploring their architectural integration, prevalent types, and the criteria influencing their selection.
