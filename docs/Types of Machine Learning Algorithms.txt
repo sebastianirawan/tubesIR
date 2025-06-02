@@ -1,0 +1,94 @@
+Title: Types of Machine Learning Algorithms
+
+Machine learning is about designing algorithms that allow a computer to learn. Learning is
+not necessarily involves consciousness but learning is a matter of finding statistical
+regularities or other patterns in the data. Thus, many machine learning algorithms will
+barely resemble how human might approach a learning task. However, learning algorithms
+can give insight into the relative difficulty of learning in different environments. 
+Machine learning algorithms are organized into taxonomy, based on the desired outcome of
+the algorithm. Common algorithm types include:
+Supervised learning where the algorithm generates a function that maps inputs
+to desired outputs. One standard formulation of the supervised learning task is the
+classification problem: the learner is required to learn (to approximate the behavior
+of) a function which maps a vector into one of several classes by looking at several
+input-output examples of the function.
+Unsupervised learning which models a set of inputs: labeled examples are not
+available.
+Reinforcement learning where the algorithm learns a policy of how to act given
+an observation of the world. Every action has some impact in the environment, and
+the environment provides feedback that guides the learning algorithm. 
+1.1 Supervised Learning Approach
+Supervised learning is fairly common in classification problems because the goal is often to
+get the computer to learn a classification system that we have created. Digit recognition,
+once again, is a common example of classification learning. More generally, classification
+learning is appropriate for any problem where deducing a classification is useful and the
+classification is easy to determine. In some cases, it might not even be necessary to give predetermined classifications to every instance of a problem if the agent can work out the
+classifications for itself. This would be an example of unsupervised learning in a
+classification context.
+Supervised learning often leaves the probability for inputs undefined. This model is not
+needed as long as the inputs are available, but if some of the input values are missing, it is
+not possible to infer anything about the outputs. Unsupervised learning, all the observations
+are assumed to be caused by latent variables, that is, the observations is assumed to be at the
+end of the causal chain. 
+Supervised learning is the most common technique for training neural networks and
+decision trees. Both of these techniques are highly dependent on the information given by
+the pre-determined classifications. In the case of neural networks, the classification is used
+to determine the error of the network and then adjust the network to minimize it, and in
+decision trees, the classifications are used to determine what attributes provide the most
+information that can be used to solve the classification puzzle. We'll look at both of these in
+more detail, but for now, it should be sufficient to know that both of these examples thrive
+on having some "supervision" in the form of pre-determined classifications.
+Inductive machine learning is the process of learning a set of rules from instances (examples
+in a training set), or more generally speaking, creating a classifier that can be used to generalize from new instances. The process of applying supervised ML to a realworld problem is described in Figure F. The first step is collecting the dataset. If a requisite
+expert is available, then s/he could suggest which fields (attributes, features) are the most informative.
+1.2 Unsupervised learning
+Unsupervised learning seems much harder: the goal is to have the computer learn how to
+do something that we don't tell it how to do! There are actually two approaches to
+unsupervised learning. The first approach is to teach the agent not by giving explicit
+categorizations, but by using some sort of reward system to indicate success. Note that this
+type of training will generally fit into the decision problem framework because the goal is
+not to produce a classification but to make decisions that maximize rewards. This approach
+nicely generalizes to the real world, where agents might be rewarded for doing certain actions and punished for doing others. Often, a form of reinforcement learning can be used
+for unsupervised learning, where the agent bases its actions on the previous rewards and
+punishments without necessarily even learning any information about the exact ways that
+its actions affect the world. In a way, all of this information is unnecessary because by
+learning a reward function, the agent simply knows what to do without any processing
+because it knows the exact reward it expects to achieve for each action it could take. This can
+be extremely beneficial in cases where calculating every possibility is very time consuming
+(even if all of the transition probabilities between world states were known). On the other
+hand, it can be very time consuming to learn by, essentially, trial and error. But this kind of
+learning can be powerful because it assumes no pre-discovered classification of examples. In
+some cases, for example, our classifications may not be the best possible. One striking
+exmaple is that the conventional wisdom about the game of backgammon was turned on its
+head when a series of computer programs (neuro-gammon and TD-gammon) that learned
+through unsupervised learning became stronger than the best human chess players merely
+by playing themselves over and over. These programs discovered some principles that
+surprised the backgammon experts and performed better than backgammon programs
+trained on pre-classified examples. A second type of unsupervised learning is called
+clustering. In this type of learning, the goal is not to maximize a utility function, but simply
+to find similarities in the training data. The assumption is often that the clusters discovered
+will match reasonably well with an intuitive classification. For instance, clustering
+individuals based on demographics might result in a clustering of the wealthy in one group
+and the poor in another. Although the algorithm won't have names to assign to these
+clusters, it can produce them and then use those clusters to assign new examples into one or
+the other of the clusters. This is a data-driven approach that can work well when there is
+sufficient data; for instance, social information filtering algorithms, such as those that
+Amazon.com use to recommend books, are based on the principle of finding similar groups
+of people and then assigning new users to groups. In some cases, such as with social
+information filtering, the information about other members of a cluster (such as what books
+they read) can be sufficient for the algorithm to produce meaningful results. In other cases, it
+may be the case that the clusters are merely a useful tool for a human analyst.
+Unfortunately, even unsupervised learning suffers from the problem of overfitting the
+training data. There's no silver bullet to avoiding the problem because any algorithm that
+can learn from its inputs needs to be quite powerful.
+Unsupervised learning algorithms according to Ghahramani (Ghahramani, 2008) are
+designed to extract structure from data samples. The quality of a structure is measured by a
+cost function which is usually minimized to infer optimal parameters characterizing the
+hidden structure in the data. Reliable and robust inference requires a guarantee that
+extracted structures are typical for the data source, i.e., similar structures have to be
+extracted from a second sample set of the same data source. Lack of robustness is known as
+over fitting from the statistics and the machine learning literature. In this talk I characterize
+the over fitting phenomenon for a class of histogram clustering models which play a
+prominent role in information retrieval, linguistic and computer vision applications.
+Learning algorithms with robustness to sample fluctuations are derived from large
+deviation results and the maximum entropy principle for the learning process. 

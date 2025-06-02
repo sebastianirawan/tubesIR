@@ -1,0 +1,3 @@
+Title: DNS Post
+
+Ever wondered how you type "https://www.google.com/search?q=google.com" and actually get to Google? That's DNS! It's basically the internet's phonebook. Instead of remembering complicated number addresses (IPs) for every website, DNS translates human-friendly domain names into those machine-readable IPs. So, when you type a website name, DNS looks it up and tells your computer exactly where to go. Simple!

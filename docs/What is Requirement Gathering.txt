@@ -1,0 +1,10 @@
+Title: What is Requirement Gathering
+
+Requirement engineering, huh? It's basically the detective work at the very start of any project, especially in software. You know how people often think they know what they want, but it's often vague or changes? Requirement engineering is all about digging deep, asking the right questions, and figuring out the actual needs of the users and the business.
+
+It's about translating those fuzzy ideas into clear, unambiguous specifications that developers can actually build from. Think of it as writing the perfect blueprint before you even pick up a hammer. Get it wrong here, and the whole house might fall apart! So yeah, it's super crucial for making sure you build the right thing. #SoftwareDev #Requirements #ProjectManagement
+Ever tried building something without knowing what it's supposed to do? Disaster, right? That's where Requirements Engineering comes in! It's all about figuring out exactly what a software system needs to do.
+
+Think of it as the detective work before you even start coding. You're talking to people, asking questions, digging into details, and then writing it all down super clearly. This makes sure everyone's on the same page about the goals, features, and limitations. Basically, it prevents you from building a supercar when the client actually just needed a bicycle. It's crucial for avoiding costly mistakes and delivering a product that actually solves the right problem!
+
+#SoftwareDev #RequirementsEngineering #TechExplained

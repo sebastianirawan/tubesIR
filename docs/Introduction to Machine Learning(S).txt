@@ -1,0 +1,10 @@
+Title: Introduction to Machine Learning
+
+Machine learning is about extracting knowledge from data. It is a research field at the
+intersection of statistics, artificial intelligence, and computer science and is also
+known as predictive analytics or statistical learning. The application of machine
+learning methods has in recent years become ubiquitous in everyday life. From auto‐
+matic recommendations of which movies to watch, to what food to order or which
+products to buy, to personalized online radio and recognizing your friends in your
+photos, many modern websites and devices have machine learning algorithms at their
+core. 
