@@ -1,0 +1,19 @@
+Title: What is a Neural Network?
+
+In its most general form, a neural network is a machine that is designed to model the way
+in which the brain performs a particular task or function of interest; the network is usually implemented by using electronic components or is simulated in software on a digital computer. In this book, we focus on an important class of neural networks that
+perform useful computations through a process of learning. To achieve good performance, neural networks employ a massive interconnection of simple computing cells
+referred to as “neurons” or “processing units.” We may thus offer the following definition of a neural network viewed as an adaptive machine:
+A neural network is a massively parallel distributed processor made up of simple processing
+units that has a natural propensity for storing experiential knowledge and making it available
+for use. It resembles the brain in two respects:
+Knowledge is acquired by the network from its environment through a learning process.
+Interneuron connection strengths, known as synaptic weights, are used to store the acquired knowledge.
+The procedure used to perform the learning process is called a learning algorithm,
+the function of which is to modify the synaptic weights of the network in an orderly
+fashion to attain a desired design objective.
+The modification of synaptic weights provides the traditional method for the design of neural networks. Such an approach is the closest to linear adaptive filter theory,
+which is already well established and successfully applied in many diverse fields (Widrow
+and Stearns, 1985; Haykin, 2002). However, it is also possible for a neural network to
+modify its own topology, which is motivated by the fact that neurons in the human brain
+can die and new synaptic connections can grow.

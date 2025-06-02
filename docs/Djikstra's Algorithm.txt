@@ -1,0 +1,64 @@
+Title: Djikstra's Algorithm
+
+Dijkstra's Algorithm, named after its discoverer Edsger W. Dijkstra, is a powerful and widely used algorithm for finding the shortest paths from a single source vertex to all other vertices in a weighted graph. It's particularly useful in applications like network routing, GPS navigation, and mapping shortest routes.
+
+Key Concepts:
+Before diving into the algorithm, let's understand some fundamental terms:
+
+Graph: A collection of "nodes" (also called vertices) and "edges" that connect pairs of nodes.
+Weighted Graph: A graph where each edge has a numerical value (weight) associated with it. This weight usually represents a "cost," "distance," or "time" to traverse that edge.
+Non-negative Edge Weights: A crucial assumption for Dijkstra's Algorithm is that all edge weights must be non-negative. If there are negative weights, Dijkstra's algorithm might produce incorrect results, and algorithms like Bellman-Ford should be used instead.
+Shortest Path: The path between two vertices where the sum of the weights of the edges along that path is minimized.
+Single Source: Dijkstra's algorithm finds the shortest paths from one specific starting vertex to all other reachable vertices in the graph.
+Tentative Distance: An estimated shortest distance from the source to a given vertex. This distance is updated as the algorithm explores more paths.
+Finalized Distance: Once a vertex's shortest path from the source is determined, its distance is considered "finalized" or "settled."
+The Intuition (Greedy Approach):
+Dijkstra's algorithm employs a greedy approach. It iteratively expands the set of vertices for which the shortest path has already been finalized. At each step, it selects the unvisited vertex with the smallest tentative distance from the source. This greedy choice works because of the non-negative edge weights; if there were a shorter path to a vertex, it would have been found earlier.
+
+How Dijkstra's Algorithm Works (Step-by-Step):
+Let's break down the algorithm's process:
+
+Initialization:
+
+Create a distances dictionary/array to store the shortest distance found so far from the source to every other vertex. Initialize the source vertex's distance to 0 and all other vertices' distances to infinity.
+Create a predecessors dictionary/array to reconstruct the actual shortest paths later. Initialize all predecessors to null or an invalid value.
+Create a priority queue (min-heap) and add the source vertex to it with its distance (0). A priority queue is essential because it allows efficient retrieval of the unvisited vertex with the smallest tentative distance.
+Iteration (Main Loop):
+
+While the priority queue is not empty:
+Extract Minimum: Extract the vertex u with the smallest tentative distance from the priority queue. This u is now considered "visited" or "settled," meaning its shortest path from the source has been finalized.
+Check for Redundancy: If the extracted distance for u is greater than its already finalized distance (this can happen if a shorter path to u was found and added to the priority queue before u was extracted with a larger tentative distance), simply continue to the next iteration.
+Explore Neighbors (Relaxation): For each neighbor v of u:
+Calculate the distance from the source to v through u: new_distance = distances[u] + weight(u, v).
+Relaxation Step: If new_distance is less than the current distances[v]:
+Update distances[v] to new_distance.
+Set predecessors[v] to u (indicating that the shortest path to v currently goes through u).
+Add (or update) v to the priority queue with its new, smaller distance.
+Termination:
+
+The algorithm terminates when the priority queue becomes empty. At this point, the distances array will contain the shortest distances from the source to all reachable vertices, and the predecessors array can be used to reconstruct the paths.
+Why it Works (Proof Sketch):
+The correctness of Dijkstra's algorithm relies on the non-negative edge weights and the greedy property.
+
+Inductive Hypothesis: Assume that for all vertices already extracted from the priority queue (the "settled" vertices), their distances values correctly represent the shortest path from the source.
+Inductive Step: When Dijkstra's extracts the next vertex u with the smallest tentative distance from the priority queue, it claims that distances[u] is indeed the true shortest path from the source to u.
+Proof by Contradiction: Suppose there was a shorter path to u than distances[u]. This shorter path must contain at least one unvisited vertex, let's call the first unvisited vertex on this supposed shorter path x. Since x is on a shorter path to u, distances[x] (or its tentative distance in the priority queue) must be less than or equal to distances[u].
+However, because u was chosen from the priority queue as the vertex with the smallest tentative distance among all unvisited vertices, distances[u] must be less than or equal to distances[x].
+This creates a contradiction: distances[x] <= distances[u] and distances[u] <= distances[x] implies distances[x] = distances[u]. But if the path through x is strictly shorter than distances[u], then distances[x] should have been strictly less than distances[u], and x would have been extracted before u. This contradiction proves that distances[u] must be the true shortest path.
+Data Structures and Time Complexity:
+The efficiency of Dijkstra's algorithm heavily depends on the implementation of the priority queue:
+
+Adjacency List: The graph is typically represented using an adjacency list, where each vertex stores a list of its neighbors and the weights of the connecting edges.
+Priority Queue:
+Binary Heap: Using a binary heap as the priority queue, the time complexity is typically O(ElogV) or O(E+VlogV), where V is the number of vertices and E is the number of edges. This is because each edge relaxation (updating a neighbor's distance) can lead to a decrease-key operation in the priority queue (or simply adding a new entry), and there are at most E such operations. Each extract-min operation takes O(logV) time, and there are V such operations.
+Fibonacci Heap: For very dense graphs, a Fibonacci heap can theoretically improve the time complexity to O(E+VlogV), but their practical implementation overhead is often higher than binary heaps.
+Simple Array/List: If you don't use a priority queue and simply scan through all unvisited vertices to find the minimum, the complexity becomes O(V 
+2
+ ). This is fine for dense graphs or small graphs, but very inefficient for sparse graphs.
+Limitations:
+Non-negative Edge Weights: As mentioned, the most significant limitation is that Dijkstra's algorithm does not work correctly with negative edge weights. If a graph contains negative cycles, the concept of a shortest path might not even be well-defined (you could keep traversing the cycle to get an infinitely small path).
+Example Application:
+Imagine a road network where cities are vertices and roads are edges with weights representing distances. Dijkstra's algorithm can find the shortest route from your starting city to all other cities on the map.
+
+Summary:
+Dijkstra's Algorithm is a cornerstone of graph theory for finding the single-source shortest paths in weighted graphs with non-negative edge weights. Its greedy approach, combined with the efficient use of a priority queue, makes it a highly practical and widely adopted algorithm in various fields.

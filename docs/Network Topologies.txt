@@ -1,0 +1,26 @@
+Title: Network Topologies
+
+Network topology refers to the physical or logical arrangement of nodes (devices) and connections (links) in a computer network. It defines how devices are interconnected and how data flows between them. The choice of topology impacts network performance, reliability, scalability, and cost.
+
+Examples of Common Network Topologies:
+
+Bus Topology:
+
+All devices are connected to a single central cable, called the bus. Data travels in both directions along this cable.
+Simple and inexpensive for small networks, but a single break in the bus cable can disrupt the entire network.
+Star Topology:
+
+All devices are connected to a central hub, switch, or router. Each device has a dedicated connection to the central device.
+Highly reliable as a failure in one connection doesn't affect others. Easy to install and manage, but the central device is a single point of failure.
+Ring Topology:
+
+Devices are connected in a circular fashion, forming a closed loop. Data travels in one direction around the ring, passing through each device until it reaches its destination.
+Can be efficient for small networks with consistent data flow, but a single broken link can disable the entire ring, and adding/removing devices is disruptive.
+Mesh Topology:
+
+Every device is connected directly to every other device in the network. This creates multiple paths for data.
+Extremely reliable and robust due to redundant paths, making it ideal for mission-critical applications. However, it's very expensive and complex to implement due to the large number of connections required.
+Hybrid Topology:
+
+A combination of two or more different basic topologies. For example, a star-bus topology where several star networks are connected to a central bus.
+Offers flexibility and can be designed to meet specific network requirements, combining the advantages of different basic topologies while mitigating their disadvantages.

@@ -1,0 +1,13 @@
+Title: Sorting Algorithms
+
+Bubble Sort: This algorithm repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted. It's simple to understand but inefficient for large datasets.
+
+Selection Sort: Selection sort divides the input list into two parts: a sorted sublist built up from the left, and the remaining unsorted sublist. It repeatedly finds the minimum element from the unsorted sublist and moves it to the end of the sorted sublist.
+
+Insertion Sort: Insertion sort builds the final sorted array (or list) one item at a time. It iterates through the input elements and at each iteration removes one element from the input data and inserts it into the correct position in the already sorted list. This is efficient for small datasets or nearly sorted data.
+
+Merge Sort: Merge sort is a "divide and conquer" algorithm. It works by dividing the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), and then repeatedly merging sublists to produce new sorted sublists until there is only one sorted sublist remaining.
+
+Quick Sort: Another "divide and conquer" algorithm, Quick Sort picks an element as a pivot and partitions the array around the picked pivot. The goal is to move elements smaller than the pivot to the left and elements greater than the pivot to the right. This process is then recursively applied to the sub-arrays.
+
+Heap Sort: Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It builds a max-heap (or min-heap) from the input data, then repeatedly extracts the maximum (or minimum) element from the heap and places it at the end of the sorted array.
