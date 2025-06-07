@@ -1,6 +1,6 @@
 import os
 from vsm import VSM
-# from bm25 import BM25
+from bm25 import BM25
 
 def main():
     print('\n[Pilih model]\n1. VSM\n2. BM25')
@@ -24,6 +24,21 @@ def main():
                     print(f"   Title: {title}")
                     print(f"   Score: {score:.3f}")
                     print(f"   Snippet: {snippet}\n")
+    elif model == '2':
+        bm25 = BM25(docPath)
+        result = bm25.search(query)
+
+        print("\n--- Search Results ---")
+        if not result or result[0][1] == 0.0:
+            print("No relevant documents found.")
+        else:
+            for filename, score, snippet in result:
+                if score > 0:
+                    title = os.path.splitext(filename)[0]
+                    print(f"   Title: {title}")
+                    print(f"   Score: {score:.3f}")
+                    print(f"   Snippet: {snippet}\n")
+
 
 if __name__ == '__main__':
     main()
