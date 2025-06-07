@@ -64,8 +64,8 @@ class VSM:
         if not rank:
             return []
         relevantDocs = [
-            (filename, score)
-            for filename, score in rank
+            (filename, score, snippet)
+            for filename, score, snippet in rank
             if score >= threshold
         ]
         return relevantDocs
