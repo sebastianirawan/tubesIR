@@ -1,6 +1,6 @@
 History and Impact of Open Source Software
 
-1. A Brief History: From Hacker Ethic to Global Phenomenon
+1.A Brief History: From Hacker Ethic to Global Phenomenon
 The concept of "open source" software, while formalized relatively recently, has roots stretching back to the earliest days of computing. In the 1950s and 60s, software often came bundled with hardware, and its source code was freely shared among academics and researchers. This early "hacker culture" at institutions like MIT thrived on collaboration, where programmers readily shared and modified code to improve systems and solve problems. This was a necessity born of nascent technology and a spirit of collective advancement.
 
 

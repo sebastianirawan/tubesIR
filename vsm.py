@@ -1,4 +1,5 @@
 import os
+import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 from preprocessing import preprocess
 
@@ -6,10 +7,13 @@ class VSM:
     def __init__(self, docDir): # init dengan path doc (semua dokumen)
         self.fileNames = [] # arr judul doc
         self.documents = [] # arr isi dokumen
+        self.raw_documents = [] # arr for original, raw document content
         for file in os.listdir(docDir): # cek semua dokumen di corpus
             if file.endswith('.txt'): # jika file sesuai format (file txt)
                 with open(os.path.join(docDir, file), 'r', encoding='utf-8') as f: #baca isi doc
-                    self.documents.append(preprocess(f.read())) #preprocess isi doc, simpan ke array
+                    raw_content = f.read()
+                    self.raw_documents.append(raw_content) # store raw content
+                    self.documents.append(preprocess(raw_content)) #preprocess isi doc, simpan ke array
                     self.fileNames.append(file)# simpan nama file (judul)
         self.vectorizer = TfidfVectorizer(sublinear_tf=True)# tf-idf vectorizer dengan sublinear tf scaling
         self.tfidfMatrix = self.vectorizer.fit_transform(self.documents) #matrix tf-idf dengan dimensi (jumlah dokumen x jumlah term dalam vocabulary), berbentuk sparse matrix: matrix yg hanya menyimpan non-zero value
@@ -21,7 +25,7 @@ class VSM:
             for index, value in zip(queryVector.indices, queryVector.data)
         }
 
-        result = [] # list tuple (tuple: judul doc, skornya)
+        result = [] # list tuple (tuple: judul doc, skornya, snippetnya)
 
         for i in range(self.tfidfMatrix.shape[0]): #iterasi tiap doc
             documentVector = self.tfidfMatrix[i] # buat doc jadi vector
@@ -36,7 +40,21 @@ class VSM:
                 if j in documentVectorMap: # jika term tersebut ada di doc i
                     dotProduct += queryVectorMap[j] * documentVectorMap[j] # tambahkan hasil perkalian skor term di doc dan di query ke dot product
 
-            result.append((self.fileNames[i], dotProduct)) #tambahkan ke list
+            # --- Corrected Snippet Extraction ---
+            snippet = ""
+            raw_doc = self.raw_documents[i]
+            lines = raw_doc.splitlines()
+
+            # The document body starts after the title (line 0) and a blank line (line 1)
+            if len(lines) > 2:
+                # Join the actual body content back into a single string
+                document_body = '\n'.join(lines[2:])
+                # Tokenize the body into sentences and get the first one.
+                sentences = nltk.sent_tokenize(document_body)
+                if sentences:
+                    snippet = sentences[0].replace('\n', ' ')
+
+            result.append((self.fileNames[i], dotProduct, snippet)) #tambahkan ke list
 
         rank = sorted(result, key=lambda x: x[1], reverse=True) #sort
 

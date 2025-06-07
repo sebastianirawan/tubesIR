@@ -13,10 +13,17 @@ def main():
     if model == '1': #modle vsm dipilih
         vsm = VSM(docPath) # init dengan param path doc (semua dokumen)
         result = vsm.search(query) # search query, mengembalikan hasil ranking dokumen
-        print("\nHasil:")
-        for filename, score in result: # print hasil: judul doc dan skornya
-            title = os.path.splitext(filename)[0] # menghilangkan .txt dari nama file (nama file = judul doc)
-            print(f"{title} - score: {score:.3f}")
+        
+        print("\n--- Search Results ---")
+        if not result or result[0][1] == 0.0:
+            print("No relevant documents found.")
+        else:
+            for filename, score, snippet in result: # unpack filename, score, and snippet
+                if score > 0: # Only show documents with a relevance score
+                    title = os.path.splitext(filename)[0] # menghilangkan .txt dari nama file (nama file = judul doc)
+                    print(f"   Title: {title}")
+                    print(f"   Score: {score:.3f}")
+                    print(f"   Snippet: {snippet}\n")
 
 if __name__ == '__main__':
     main()

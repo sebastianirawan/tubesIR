@@ -1,11 +1,11 @@
 Hashing and Hash Tables
 
-1. Introduction to Associative Arrays and the Role of Hashing
+1.Introduction to Associative Arrays and the Role of Hashing
 In computer science, an associative array, also known as a dictionary or map, is an abstract data type that stores a collection of key-value pairs, where each unique key is associated with a specific value. The primary operations supported by an associative array are insertion of a key-value pair, deletion of a key-value pair, and retrieval of a value associated with a given key. The efficiency of these operations is paramount in numerous computational applications, ranging from database indexing and symbol tables in compilers to caches and graph algorithms.
 
 The hash map (also known as a hash table) is a highly efficient data structure that implements the associative array abstract data type. Its efficacy stems from its ability to provide nearly constant-time average performance for insertion, deletion, and lookup operations, contrasting favorably with search trees (e.g., balanced binary search trees, which offer logarithmic performance) or linear search (linear performance). This performance characteristic is achieved through the principle of hashing.
 
-2. The Core Concept of Hashing
+2.The Core Concept of Hashing
 Hashing is a process that transforms an arbitrary input (the "key") into a fixed-size numerical output (the "hash value" or "hash code"). This hash value is then used as an index into an underlying array, often referred to as the "hash table" or "bucket array." The ideal scenario is that each distinct key maps to a unique index, enabling direct access to the associated value.
 
 Formally, a hash function h maps a universe of keys U to a set of indices or slots in a hash table T of size m, i.e., h: U -> {0, 1, ..., m-1}. The effectiveness of a hash map heavily relies on the design of an appropriate hash function, which should possess the following desirable properties:
@@ -18,12 +18,12 @@ Common techniques for constructing hash functions include:
 
 Division Method: h(k) = k mod m. This method is simple but requires careful selection of m. If m is a power of 2, the hash function simply selects the lower-order bits of k, which can lead to poor distribution if keys exhibit patterns in these bits. Choosing m as a prime number often yields better distribution.
 Multiplication Method: h(k) = floor(m * (k * A mod 1)), where A is a real-valued constant such that 0 < A < 1. Donald Knuth suggested using A approximately (sqrt(5)-1)/2 (the golden ratio) for good empirical results. This method is less sensitive to the choice of m.
-3. Hash Collisions and Resolution Strategies
+3.Hash Collisions and Resolution Strategies
 Despite the aim for uniform distribution, it is statistically inevitable that distinct keys will occasionally map to the same hash value, especially when the number of keys n approaches or exceeds the table size m. This phenomenon is known as a hash collision. The Birthday Paradox illustrates that collisions become probable much sooner than intuition might suggest: in a group of just 23 people, there's a greater than 50% chance that two share a birthday. Similarly, in hashing, collisions are common even with well-designed hash functions.
 
 Effective collision resolution techniques are crucial for maintaining the performance of hash maps. The two primary categories are:
 
-3.1. Separate Chaining
+3.1.Separate Chaining
 In separate chaining, each slot (or "bucket") in the hash table is designed to hold a pointer to a secondary data structure, typically a linked list (or dynamic array, or even a balanced binary search tree for very high collision rates). When a collision occurs, the new key-value pair is simply appended to the list at the hashed index.
 
 Insertion: Compute h(k). Add the key-value pair to the list at T[h(k)].
@@ -40,7 +40,7 @@ Disadvantages:
 Requires additional memory for pointers (overhead of linked lists).
 Potential for degraded cache performance due to scattered memory access if chains become long.
 Worst-case performance degenerates to linear performance if all keys hash to the same bucket.
-3.2. Open Addressing
+3.2.Open Addressing
 In open addressing, all elements are stored directly within the hash table array itself. When a collision occurs, the algorithm systematically probes for an alternative empty slot within the table. The sequence of probed slots is determined by a probing function. If the table becomes too full, it must be resized (rehashed) to a larger capacity.
 
 Key operations:
@@ -62,27 +62,20 @@ Disadvantages:
 More complex deletion.
 Performance degrades sharply as the table approaches full capacity.
 Requires careful management of the load factor to avoid significant clustering.
-4. Load Factor and Rehashing
+4.Load Factor and Rehashing
 The load factor, denoted by alpha, is a critical metric for hash maps, defined as the ratio of the number of stored entries (n) to the total number of slots (m) in the hash table: alpha = n/m.
 
 For separate chaining, alpha can exceed 1, as multiple elements can reside in a single bucket. The average length of a chain is alpha.
 For open addressing, alpha must always be less than or equal to 1, as each slot can hold at most one element.
 The load factor directly influences the performance of hash map operations. A higher load factor increases the probability of collisions and, consequently, the average time required for insertion, lookup, and deletion. To maintain desirable average-case constant performance, hash maps typically implement a rehashing (or resizing) mechanism. When the load factor exceeds a predetermined threshold (e.g., 0.7 or 0.75 for open addressing, or a higher value for separate chaining), the hash map creates a new, larger underlying array (typically doubling the size) and re-inserts all existing key-value pairs into the new table using the (potentially new) hash function and m. This process ensures that the average chain length or probing sequence length remains small. While rehashing itself is a linear operation, its amortized cost over a sequence of operations is constant, contributing to the overall constant average-case complexity.
 
-5. Advanced Hashing Concepts
+5.Advanced Hashing Concepts
 Universal Hashing: To mitigate the risk of worst-case performance (linear) if an adversary chooses keys that all hash to the same bucket, universal hashing is employed. Instead of using a single fixed hash function, a hash map using universal hashing selects a hash function randomly from a family of hash functions. A family of hash functions H is universal if for any two distinct keys x, y in U, the probability that h(x) = h(y) (where h is chosen uniformly at random from H) is at most 1/m. This probabilistic guarantee ensures that the expected number of collisions is low, regardless of the input data distribution.
 
 Perfect Hashing: For a static set of keys (i.e., keys are known in advance and do not change), it is possible to construct a perfect hash function. A perfect hash function h for a set S is an injective mapping from S to {0, 1, ..., m-1}, meaning that every key in S hashes to a unique slot. If m equals the size of S, it is called a minimal perfect hash function. Perfect hashing guarantees constant worst-case performance for lookups. However, constructing perfect hash functions for dynamic sets or very large static sets can be computationally intensive.
 
-6. Conclusion
-Hashing and hash maps represent a cornerstone of efficient data management in computer science. By leveraging hash functions to map keys to array indices, they provide exceptional average-case performance for fundamental dictionary operations. The careful selection of hash functions, coupled with robust collision resolution strategies and dynamic resizing mechanisms, are critical for realizing the full potential of these data structures, ensuring their widespread applicability in diverse computational domains. While worst-case scenarios remain a theoretical consideration, practical implementations often demonstrate near-ideal performance due to the probabilistic properties of well-designed hashing schemes.
-  and h 
-2
-​
-  are two different hash functions. h 
-2
-​
- (k) must never evaluate to zero, and its value should be relatively prime to m to ensure all slots are probed. This method generally provides the best performance among open addressing schemes by generating more diverse probe sequences, reducing clustering.
+6.Conclusion
+Hashing and hash maps represent a cornerstone of efficient data management in computer science. By leveraging hash functions to map keys to array indices, they provide exceptional average-case performance for fundamental dictionary operations. The careful selection of hash functions, coupled with robust collision resolution strategies and dynamic resizing mechanisms, are critical for realizing the full potential of these data structures, ensuring their widespread applicability in diverse computational domains. While worst-case scenarios remain a theoretical consideration, practical implementations often demonstrate near-ideal performance due to the probabilistic properties of well-designed hashing schemes. and h2 are two different hash functions. h2(k) must never evaluate to zero, and its value should be relatively prime to m to ensure all slots are probed. This method generally provides the best performance among open addressing schemes by generating more diverse probe sequences, reducing clustering.
 Advantages:
 
 No additional memory overhead for pointers.
@@ -92,7 +85,7 @@ Disadvantages:
 More complex deletion.
 Performance degrades sharply as the table approaches full capacity.
 Requires careful management of the load factor to avoid significant clustering.
-4. Load Factor and Rehashing
+4.Load Factor and Rehashing
 The load factor, denoted by α, is a critical metric for hash maps, defined as the ratio of the number of stored entries (n) to the total number of slots (m) in the hash table: α=n/m.
 
 For separate chaining, α can exceed 1, as multiple elements can reside in a single bucket. The average length of a chain is α.
@@ -100,11 +93,11 @@ For open addressing, α must always be less than or equal to 1, as each slot can
 The load factor directly influences the performance of hash map operations. A higher load factor increases the probability of collisions and, consequently, the average time required for insertion, lookup, and deletion. To maintain desirable average-case O(1) performance, hash maps typically implement a rehashing (or resizing) mechanism. When the load factor exceeds a predetermined threshold (e.g., 0.7 or 0.75 for open addressing, or a higher value for separate chaining), the hash map creates a new, larger underlying array (typically doubling the size) and re-inserts all existing key-value pairs into the new table using the (potentially new) hash function and m. This process ensures that the average chain length or probing sequence length remains small. While rehashing itself is an O(n) operation, its amortized cost over a sequence of operations is constant, contributing to the overall O(1) average-case complexity.
 
 
-5. Advanced Hashing Concepts
+5.Advanced Hashing Concepts
 Universal Hashing: To mitigate the risk of worst-case performance (O(n)) if an adversary chooses keys that all hash to the same bucket, universal hashing is employed. Instead of using a single fixed hash function, a hash map using universal hashing selects a hash function randomly from a family of hash functions. A family of hash functions H is universal if for any two distinct keys x,y∈U, the probability that h(x)=h(y) (where h is chosen uniformly at random from H) is at most 1/m. This probabilistic guarantee ensures that the expected number of collisions is low, regardless of the input data distribution.
 
 Perfect Hashing: For a static set of keys (i.e., keys are known in advance and do not change), it is possible to construct a perfect hash function. A perfect hash function h for a set S is an injective mapping from S to {0,1,…,m−1}, meaning that every key in S hashes to a unique slot. If m=∣S∣, it is called a minimal perfect hash function. Perfect hashing guarantees O(1) worst-case performance for lookups. However, constructing perfect hash functions for dynamic sets or very large static sets can be computationally intensive.
 
 
-6. Conclusion
+6.Conclusion
 Hashing and hash maps represent a cornerstone of efficient data management in computer science. By leveraging hash functions to map keys to array indices, they provide exceptional average-case performance for fundamental dictionary operations. The careful selection of hash functions, coupled with robust collision resolution strategies and dynamic resizing mechanisms, are critical for realizing the full potential of these data structures, ensuring their widespread applicability in diverse computational domains. While worst-case scenarios remain a theoretical consideration, practical implementations often demonstrate near-ideal performance due to the probabilistic properties of well-designed hashing schemes.

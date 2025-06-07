@@ -2,7 +2,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
-nltk.download('punkt_tab') # model tokenizer untuk memecah kalimat menjadi kata
+nltk.download('punkt') # model tokenizer untuk memecah kalimat menjadi kata
 nltk.download('stopwords')
 stopWords = set(stopwords.words('english'))# daftar stopword bahasa inggris
 stemmer = PorterStemmer()# ubah kata ke bentuk dasar dng porter stemmer
