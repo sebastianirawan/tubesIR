@@ -58,4 +58,14 @@ class VSM:
 
         rank = sorted(result, key=lambda x: x[1], reverse=True) #sort
 
-        return rank[:30] #kembalikan top 30
+        return self.retrieve(rank) #kembalikan top 30
+    
+    def retrieve (self, rank, threshold=0.09):
+        if not rank:
+            return []
+        relevantDocs = [
+            (filename, score)
+            for filename, score in rank
+            if score >= threshold
+        ]
+        return relevantDocs
