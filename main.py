@@ -24,16 +24,16 @@ def main():
                     print(f"   Title: {title}")
                     print(f"   Score: {score:.3f}")
                     print(f"   Snippet: {snippet}\n")
-    elif model == '2':
-        bm25 = BM25(docPath)
-        result = bm25.search(query)
+    elif model == '2': # model bm25 dipilih
+        bm25 = BM25(docPath) # init dengan param path doc (semua dokumen)
+        result = bm25.search(query) # search query, mengembalikan hasil ranking dokumen
 
         print("\n--- Search Results ---")
         if not result or result[0][1] == 0.0:
             print("No relevant documents found.")
         else:
-            for filename, score, snippet in result:
-                if score > 0:
+            for filename, score, snippet in result: # unparck filename, score, and snippet
+                if score > 0: # show document with relevance score
                     title = os.path.splitext(filename)[0]
                     print(f"   Title: {title}")
                     print(f"   Score: {score:.3f}")
