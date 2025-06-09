@@ -60,7 +60,7 @@ class VSM:
 
         return self.retrieve(rank) #kembalikan top 30
     
-    def retrieve (self, rank, threshold=0.09):
+    def retrieve (self, rank, threshold=0.2):
         if not rank:
             return []
         relevantDocs = [
